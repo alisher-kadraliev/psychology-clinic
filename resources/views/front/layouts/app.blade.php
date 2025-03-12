@@ -7,12 +7,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('front/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,15 +43,15 @@
 
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav ">
-                            <li class="scroll-to-section"><a href="{{ route('front.index') }}">Anasayfa</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('front.about') }}">Hakkımızda</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('front.services') }}">Hizmetlerimiz</a>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.index') }}">Anasayfa</a></li>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.about') }}">Hakkımızda</a></li>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.service') }}">Hizmetlerimiz</a>
                             </li>
-                            <li class="scroll-to-section"><a href="{{ route('front.blog') }}">Blog</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('front.contact') }}">İletişim</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('front.team') }}">Kadromuz</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('front.why-kuta') }}">Neden KUTA?</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('front.in-the-media') }}">Basında Biz</a>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.blog') }}">Blog</a></li>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.contact') }}">İletişim</a></li>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.team') }}">Kadromuz</a></li>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.why-kuta') }}">Neden KUTA?</a></li>
+                            <li class="scroll-to-section"><a class="!z-40 !relative" href="{{ route('front.in-the-media') }}">Basında Biz</a>
                             </li>
                             <li class="scroll-to-section">
                                 <a href="tel:05521214124"
@@ -83,7 +83,7 @@
             </div>
         </div>
     </footer>
-    <a href="tel:05521214124" class="fixed z-50 bottom-5 right-5 bg-blue-700 text-white max-lg:hidden px-4 h-10 py-2 rounded-md">
+    <a href="tel:05521214124" class="fixed z-40 bottom-5 right-5 bg-blue-700 text-white max-lg:hidden px-4 h-10 py-2 rounded-md">
         <i class="fa fa-phone"></i>
     </a>
 <div>
@@ -145,6 +145,7 @@
         </div>
     </div>
 </headers>
+
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('front/vendor/jquery/jquery.min.js') }}"></script>

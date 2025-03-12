@@ -6,14 +6,14 @@
                 <div class="col-lg-12">
                     <div class="item item-1">
                         <div class="header-text">
-                            <span class="category">KUTA'ya hoş geldiniz</span>
-                            <h1 class="text-white text-7xl max-lg:text-4xl mb-5 font-bold ">Benzersiz Bir Deneyimle Kaliteli
+                            <span class="category ">KUTA'ya hoş geldiniz</span>
+                            <h1 class="text-white text-7xl max-lg:text-4xl mb-5 font-bold">Benzersiz Bir Deneyimle Kaliteli
                                 Hizmet</h1>
                             <p>KUTA, bedensel ve ruhsal sağlığı bir bütün olarak ele alır. Psikologlar, fizyoterapistler ve
                                 diyetisyenler bir araya gelerek sizin ihtiyaçlarınıza özel bir yaklaşım sunarlar.</p>
                             <div class="buttons">
-                                <div class="main-button">
-                                    <a href="#">Şimdi rezervasyon yapın</a>
+                                <div class="main-button modal-form">
+                                    <a href="javascript:void(0)">Şimdi rezervasyon yapın</a>
                                 </div>
                                 <div class="icon-button">
                                     <a href="#"><i class="fa fa-user"></i>Hakkımızda</a>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-
+    @include('front.components.appointment-form', ['view' => 'some-value'])
     <div class="services section" id="services">
         <div class="container">
             <div class="row">
@@ -222,54 +222,22 @@
             </div>
 
             <div class="!grid !grid-cols-3 max-lg:grid-cols-1 !gap-5 ">
-                <div class="align-self-center event_outer ">
-                    <div class="events_item">
-                        <div class="thumb">
-                            <a href="#"><img src="https://static.wixstatic.com/media/11062b_b1f9f383c6264371bbfecf7b496fcdb9~mv2.jpg/v1/fill/w_580,h_388,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/11062b_b1f9f383c6264371bbfecf7b496fcdb9~mv2.jpg"
-                                    alt=""></a>
-                            <span class="category">1 saat</span>
-                            <span class="price">
-                                <h6><em>₺</em>3.500</h6>
-                            </span>
+                @foreach ($services as $service)
+                    <a href="{{ route('front.subservices', $service) }}" class="align-self-center event_outer ">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <div><img src="{{ asset('storage/' . $service->image) }}" alt=""></div>
+
+
+                            </div>
+                            <div class="down-content">
+                                <span class="author">{{ $service->name }}</span>
+                                <h4>{{ $service->name }}</h4>
+                            </div>
                         </div>
-                        <div class="down-content">
-                            <span class="author">İsim Soyisim</span>
-                            <h4>Fizyoterapist</h4>
-                        </div>
-                    </div>
-                </div>
-                 <div class="align-self-center event_outer ">
-                    <div class="events_item">
-                        <div class="thumb">
-                            <a href="#"><img src="https://static.wixstatic.com/media/11062b_b1f9f383c6264371bbfecf7b496fcdb9~mv2.jpg/v1/fill/w_580,h_388,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/11062b_b1f9f383c6264371bbfecf7b496fcdb9~mv2.jpg"
-                                    alt=""></a>
-                            <span class="category">1 saat</span>
-                            <span class="price">
-                                <h6><em>₺</em>3.500</h6>
-                            </span>
-                        </div>
-                        <div class="down-content">
-                            <span class="author">İsim Soyisim</span>
-                            <h4>Fizyoterapist</h4>
-                        </div>
-                    </div>
-                </div>
-                 <div class="align-self-center event_outer ">
-                    <div class="events_item">
-                        <div class="thumb">
-                            <a href="#"><img src="https://static.wixstatic.com/media/11062b_b1f9f383c6264371bbfecf7b496fcdb9~mv2.jpg/v1/fill/w_580,h_388,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/11062b_b1f9f383c6264371bbfecf7b496fcdb9~mv2.jpg"
-                                    alt=""></a>
-                            <span class="category">1 saat</span>
-                            <span class="price">
-                                <h6><em>₺</em>3.500</h6>
-                            </span>
-                        </div>
-                        <div class="down-content">
-                            <span class="author">İsim Soyisim</span>
-                            <h4>Fizyoterapist</h4>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -386,8 +354,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-heading">
-                        <h6>Schedule</h6>
-                        <h2>Upcoming Events</h2>
+                        <h6>Blog</h6>
+                        <h2>Blog Yazılarımız</h2>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-6">
@@ -401,20 +369,36 @@
                             <div class="col-lg-9">
                                 <ul>
                                     <li>
-                                        <span class="category">Web Design</span>
-                                        <h4>UI Best Practices</h4>
+                                        <span class="category">Başlık</span>
+                                        <h4>kısa açıklama</h4>
                                     </li>
                                     <li>
-                                        <span>Date:</span>
+                                        <span>Tarih:</span>
                                         <h6>16 Feb 2036</h6>
                                     </li>
+                                </ul>
+                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="image">
+                                    <img src="{{ asset('front/assets/images/event-01.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <ul>
                                     <li>
-                                        <span>Duration:</span>
-                                        <h6>22 Hours</h6>
+                                        <span class="category">Başlık</span>
+                                        <h4>kısa açıklama</h4>
                                     </li>
                                     <li>
-                                        <span>Price:</span>
-                                        <h6>$120</h6>
+                                        <span>Tarih:</span>
+                                        <h6>16 Feb 2036</h6>
                                     </li>
                                 </ul>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
@@ -427,58 +411,18 @@
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="image">
-                                    <img src="{{ asset('front/assets/images/event-02.jpg') }}" alt="">
+                                    <img src="{{ asset('front/assets/images/event-01.jpg') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-9">
                                 <ul>
                                     <li>
-                                        <span class="category">Front End</span>
-                                        <h4>New Design Trend</h4>
+                                        <span class="category">Başlık</span>
+                                        <h4>kısa açıklama</h4>
                                     </li>
                                     <li>
-                                        <span>Date:</span>
-                                        <h6>24 Feb 2036</h6>
-                                    </li>
-                                    <li>
-                                        <span>Duration:</span>
-                                        <h6>30 Hours</h6>
-                                    </li>
-                                    <li>
-                                        <span>Price:</span>
-                                        <h6>$320</h6>
-                                    </li>
-                                </ul>
-                                <a href="#"><i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-6">
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="image">
-                                    <img src="{{ asset('front/assets/images/event-03.jpg') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <ul>
-                                    <li>
-                                        <span class="category">Full Stack</span>
-                                        <h4>Web Programming</h4>
-                                    </li>
-                                    <li>
-                                        <span>Date:</span>
-                                        <h6>12 Mar 2036</h6>
-                                    </li>
-                                    <li>
-                                        <span>Duration:</span>
-                                        <h6>48 Hours</h6>
-                                    </li>
-                                    <li>
-                                        <span>Price:</span>
-                                        <h6>$440</h6>
+                                        <span>Tarih:</span>
+                                        <h6>16 Feb 2036</h6>
                                     </li>
                                 </ul>
                                 <a href="#"><i class="fa fa-angle-right"></i></a>
@@ -497,11 +441,11 @@
                     <div class="section-heading">
                         <h6>İletişim</h6>
                         <h2>Bize Ulaşın</h2>
-                        <p>
+                        <div>
                             İletişim
                             KUTA Sağlıklı Yaşam Merkezi olarak, sizinle iletişim kurmak ve sağlıklı bir yaşam yolculuğuna
                             birlikte adım atmak için sabırsızlanıyoruz. Her türlü sorunuz, öneriniz veya randevu
-                            talepleriniz için bizimle aşağıdaki iletişim bilgilerinden iletişime geçebilirsiniz:</p>
+                            talepleriniz için bizimle aşağıdaki iletişim bilgilerinden iletişime geçebilirsiniz:</div>
                         <div class="flex flex-col gap-2 mt-3">
                             <div>Sosyal Medya</div>
                             <div class="flex items-center gap-2">
@@ -618,14 +562,14 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <fieldset>
-                                        <input type="name" name="name" id="name" placeholder="Adınız..."
+                                        <input type="name" name="name" id="name" placeholder="Adınız Soyadınız..."
                                             autocomplete="on" required>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>
-                                        <input type="text" name="email" id="email"
-                                            placeholder="E-posta Adresiniz..." required="">
+                                        <input type="number" name="phone" id="phone"
+                                            placeholder="Telefon Numaranız..." required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
@@ -646,6 +590,7 @@
             </div>
         </div>
     </div>
+
     <div class=" section">
         <div class="container">
             <div class="row">
